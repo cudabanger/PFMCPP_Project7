@@ -7,6 +7,8 @@
 
 void DefensiveItem::use(Character* character)
 {
-    assert(false); 
-    //make your defensive item use the appropriate Utility helper functions
+    if (character != nullptr)
+    {
+        useDefensiveItem(character, *this);
+    }
 }
