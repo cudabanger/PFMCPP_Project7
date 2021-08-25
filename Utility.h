@@ -4,7 +4,7 @@
 #include <memory>
 #include "Item.h"
 
-#define RANDOM_NUMBER rand() % 10 + 1
+int GetRandomNumber();
 
 std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num);
 

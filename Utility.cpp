@@ -5,6 +5,10 @@
 #include "AttackItem.h"
 #include "Character.h"
 
+int GetRandomNumber()
+{
+    return rand() % 10 + 1;    
+}
 
 std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
 {

@@ -6,8 +6,8 @@
 DragonSlayer::DragonSlayer(std::string name_, int hp_, int armor_, int attackDamage_ ) :
     Character{ hp_, armor_, attackDamage_ }, name { name_ }
 {
-    helpfulItems = makeHelpfulItems(RANDOM_NUMBER);
-    defensiveItems = makeDefensiveItems(RANDOM_NUMBER);
+    helpfulItems = makeHelpfulItems(GetRandomNumber());
+    defensiveItems = makeDefensiveItems(GetRandomNumber());
     attackItems = makeAttackItems(1);
 }
 //DragonSlayer::getName

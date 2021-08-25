@@ -85,29 +85,22 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
+void LevelUp(int& currentParam, int& initialParam)
+{
+    if (currentParam < initialParam)
+            currentParam = initialParam;
+        
+    currentParam *= 1.10;
+    initialParam = currentParam;
+}
 
-#include <cassert>
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
     {
-        if (hitPoints < *initialHitPoints)
-            hitPoints = *initialHitPoints;
-        
-        hitPoints *= 1.10;
-        *initialHitPoints = hitPoints;
-
-        if (armor < *initialArmorLevel)
-            armor = *initialArmorLevel;
-
-        armor *= 1.10;
-        *initialArmorLevel = armor;
-
-        if (attackDamage < *initialAttackDamage)
-            attackDamage = *initialAttackDamage;
-
-        attackDamage *= 1.10;
-        *initialAttackDamage = attackDamage;
+        ::LevelUp(hitPoints, *initialHitPoints);
+        ::LevelUp(armor, *initialArmorLevel);
+        ::LevelUp(attackDamage, *initialAttackDamage);
     
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;       
     }

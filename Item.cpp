@@ -3,8 +3,3 @@
 Item::~Item()
 {
 }
-
-void Item::use(Character*)
-{
-
-}
