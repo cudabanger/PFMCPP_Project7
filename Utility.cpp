@@ -5,6 +5,12 @@
 #include "AttackItem.h"
 #include "Character.h"
 
+#include "Dwarf.h"
+#include "Character.h"
+#include "Paladin.h"
+#include "DragonSlayer.h"
+#include "Dragon.h"
+
 int GetRandomNumber()
 {
     return rand() % 10 + 1;    
