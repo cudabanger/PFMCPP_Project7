@@ -73,10 +73,10 @@ it's very easy to mess this task up.
 int main()
 {
                       //name, hit points, armor, attackDamage. 
-    Dwarf dwarf { "Maldin the Dwarf", 3, 1, 4 };
-    Paladin paladin { "Warrick the Paladin", 5, 2, 10 };
-    Dragon dragon { "Garry The Dragon", 200, 50, 80 };
-    DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5, 4 };
+    Dwarf dwarf { "Maldin the Dwarf", 3, 1 } ;
+    Paladin paladin { "Warrick the Paladin", 5, 2 } ; 
+    Dragon dragon { "Garry The Dragon", 200, 50 } ; 
+    DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
     
     std::cout << "\nstart of battle" << std::endl;
 
