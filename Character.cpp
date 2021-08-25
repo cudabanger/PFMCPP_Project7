@@ -74,7 +74,6 @@ int Character::takeDamage(int damage)
     {
         damage -= armor;
         armor = 0;
-        
         hitPoints -= damage;
         if( hitPoints < 0 )
         {
@@ -92,50 +91,31 @@ void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
     {
-        /*
-        When you defeat another Character: 
-            a) your stats are restored to their initial value if they are lower than it.
-            b) your stats are boosted 10%
-            c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
-      */
-        //assert(false);
-        // a) check if stats are lower then the defeated
-        if (hitPoints < other.hitPoints)
+        if (hitPoints < *initialHitPoints)
             hitPoints = *initialHitPoints;
-        else
-            hitPoints *= 1.10; 
-
-        if (armor < other.armor)
-            armor = *initialArmorLevel;
-        else
-            armor *= 1.10;
-
-        if (attackDamage < other.attackDamage)
-            attackDamage = *initialAttackDamage;
-        else
-            attackDamage *= 1.10;
         
-        // b) boost 10%
-        //armor *= 1.10;
-        //hitPoints *= 1.10;
-        //attackDamage *= 1.10;
-        
-        // c) the initial value of your stats is updated
+        hitPoints *= 1.10;
         *initialHitPoints = hitPoints;
-        *initialArmorLevel = armor;
-        *initialAttackDamage = attackDamage;
 
-        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
+        if (armor < *initialArmorLevel)
+            armor = *initialArmorLevel;
+
+        armor *= 1.10;
+        *initialArmorLevel = armor;
+
+        if (attackDamage < *initialAttackDamage)
+            attackDamage = *initialAttackDamage;
+
+        attackDamage *= 1.10;
+        *initialAttackDamage = attackDamage;
+    
+        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;       
     }
 }
 
 void Character::printStats()
 {
     std::cout << getName() << "'s stats: " << std::endl;
-    //assert(false);
-    /*
-    make your getStats() use a function from the Utility.h
-    */
     std::cout << getStats(); 
     
     std::cout << std::endl;
