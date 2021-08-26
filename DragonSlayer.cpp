@@ -20,14 +20,15 @@ void DragonSlayer::attack(Character& other)
 {
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
-    {
-        while( dragon->getHP() > 0 )
+    {       
+        if ( dragon->getHP() && attackItem != nullptr ) 
+        {
+            attackItem->use(this);
+            attackItem.reset(nullptr);
+        }
+
+        while( dragon->getHP() )
         {      
-            if (attackItem != nullptr) 
-            {
-                attackItem->use(this);
-                attackItem.reset(nullptr);
-            }
             dragon->takeDamage(attackDamage);
         }
     }
