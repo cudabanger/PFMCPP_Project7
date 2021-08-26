@@ -72,10 +72,10 @@ it's very easy to mess this task up.
 //==========================================================
 int main()
 {
-                      //name, hit points, armor. 
-    Dwarf dwarf { "Maldin the Dwarf", 3, 1 };
-    Paladin paladin { "Warrick the Paladin", 5, 2 };
-    Dragon dragon { "Garry The Dragon", 200, 50 };
+                      //name, hit points, armor, attackDamage. 
+    Dwarf dwarf { "Maldin the Dwarf", 3, 1 } ;
+    Paladin paladin { "Warrick the Paladin", 5, 2 } ; 
+    Dragon dragon { "Garry The Dragon", 200, 50 } ; 
     DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
     
     std::cout << "\nstart of battle" << std::endl;
@@ -91,11 +91,11 @@ int main()
     paladin.help(dwarf); //dwarf is alive now.
     
     dragon.attack( dragonSlayer ); //he dodges
-    dragonSlayer.attack( dragon ); //dragon is slayed.
+    dragonSlayer.attack( dragon ); //dragon is slayed
     //the dragon slayer has no friends and kills everyone 
     dragonSlayer.attack( paladin );
     dragonSlayer.attack( dwarf ); 
-    
+  
     std::cout << std::endl << "end of battle stats:" << std::endl;
     
     std::vector<Character*> characters { &dwarf, &paladin, &dragon, &dragonSlayer };
